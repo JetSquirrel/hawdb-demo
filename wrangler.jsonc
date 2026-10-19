@@ -1,0 +1,15 @@
+{
+  "name": "hawdb-demo",
+  "main": "worker.js",
+  "account_id": "af07b1637f2471f58ac47721c5c9c8cb",
+  "compatibility_date": "2026-10-19",
+  "workers_dev": false,
+  "preview_urls": false,
+  "build": { "command": "npm run build:site" },
+  "assets": { "directory": "./dist", "run_worker_first": ["/wasm/*"] },
+  "r2_buckets": [{ "binding": "WASM_BUCKET", "bucket_name": "hawdb-demo-assets" }],
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+  "routes": [
+    { "pattern": "hawdb-demo.jetsquirrel.cloud", "custom_domain": true }
+  ]
+}

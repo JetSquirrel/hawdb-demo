@@ -1,0 +1,17 @@
+{
+  "name": "hawdb-gpui-graph-wasm-demo",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "build:site": "npm run build && node scripts/check-bundle.mjs && node scripts/package-site.mjs",
+    "deploy": "npm run build:site && node scripts/upload-r2.mjs && wrangler deploy",
+    "test:delivery": "node --test scripts/delivery.test.mjs",
+    "check": "cargo +nightly fmt --check && cargo +nightly test --locked && bash scripts/build.sh && node --check app.js && node scripts/check-bundle.mjs && npm run test:delivery",
+    "serve": "python3 -m http.server 8080 --bind 127.0.0.1"
+  },
+  "devDependencies": {
+    "binaryen": "132.0.0"
+  }
+}

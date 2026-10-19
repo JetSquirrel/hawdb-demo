@@ -1,0 +1,40 @@
+:root {
+  color-scheme: dark;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  background: #0b0e0d;
+  color: #edf1ed;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #0b0e0d; }
+body > canvas { position: fixed; inset: 0; display: block; width: 100%; height: 100%; }
+
+#loading {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  background: radial-gradient(circle at center, #151b17, #0b0e0d 60%);
+}
+
+#loading strong { margin-top: 12px; font-size: 16px; }
+#loading span { color: #7c8880; font-size: 12px; }
+#loading.error strong { color: #ff7b72; }
+#loading.error span { max-width: 520px; color: #b7c0ba; text-align: center; }
+#loading progress { width: 220px; height: 4px; margin-top: 12px; accent-color: #c9f15a; }
+#retry { margin-top: 12px; padding: 8px 20px; border: 1px solid #40503f; border-radius: 8px; background: #1b251d; color: #edf1ed; cursor: pointer; }
+
+.mark { position: relative; width: 44px; height: 44px; border: 1px solid #40503f; border-radius: 12px; }
+.mark i { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #c9f15a; box-shadow: 0 0 12px #c9f15a88; animation: pulse 1.4s ease-in-out infinite; }
+.mark i:nth-child(1) { left: 9px; top: 10px; }
+.mark i:nth-child(2) { right: 9px; top: 12px; animation-delay: .2s; }
+.mark i:nth-child(3) { left: 18px; bottom: 8px; animation-delay: .4s; }
+.mark::before, .mark::after { content: ""; position: absolute; width: 19px; height: 1px; background: #718050; transform-origin: left; }
+.mark::before { left: 12px; top: 14px; transform: rotate(6deg); }
+.mark::after { left: 12px; top: 15px; transform: rotate(55deg); }
+
+@keyframes pulse { 50% { opacity: .35; transform: scale(.75); } }
+@media (prefers-reduced-motion: reduce) { .mark i { animation: none; } }
