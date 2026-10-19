@@ -2,6 +2,9 @@
 
 A browser demo that compiles a real in-memory [HawDB](https://github.com/nowledge-co/hawdb) database and the real [`gpui-graph`](https://github.com/JetSquirrel/gpui-graph) frontend into one WebAssembly module.
 
+Licensed under the [MIT License](LICENSE). Third-party dependencies retain their
+own licenses; bundled fonts are covered by the [SIL Open Font License](assets/OFL.txt).
+
 ## Architecture
 
 - **Database:** HawDB commit `032296335928261a17d7c98088cee7e1c869957c`, built with `default-features = false`.
